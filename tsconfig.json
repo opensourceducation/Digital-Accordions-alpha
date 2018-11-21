@@ -1,0 +1,21 @@
+{
+   "compilerOptions": {
+		"target": "es3",
+		"module": "umd",
+		"outDir": "./javascriptCompileVersion",
+		"sourceMap": true,
+		"experimentalDecorators": true,
+		"watch":true
+	},
+	"include": [
+		"npm_Install_proreledge/**/*"
+	],
+
+	"exclude": [
+	
+
+	]
+
+	
+
+}

@@ -1,0 +1,19 @@
+{
+  "name": "ProReLedge",
+  "version": "0.0.1",
+  "description": "Tecnología de aprendizaje y mapeo cognitivo de código abierto",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opensourceducation/ProReLedge.git"
+  },
+  "author": "opensourceducation",
+  "license": "EPL-2.0",
+  "bugs": {
+    "url": "https://github.com/opensourceducation/ProReLedge/issues"
+  },
+  "homepage": "https://github.com/opensourceducation/ProReLedge#readme"
+}
