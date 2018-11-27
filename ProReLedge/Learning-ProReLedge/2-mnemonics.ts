@@ -35,7 +35,6 @@ GUÍA SOBRE COMO FUNCIONA LA MNEMOTECNIA PARA QUE TE ANIMES A CREAR TUS PROPIAS 
 	o que se buscaba.[fuente wikipedia]
 
 	El potencial y utilidad de este método reside en que se vale de la forma natural en que funciona 
-
 	la mente, pues siempre se asocia de manera inconsciente la memoria; un recuerdo lleva a otro y ese 
 	a otro (este es el mismo concepto detrás de los mapas mentales), solo que con la nemotecnia se hará 
 	de manera consciente. La mayor parte del trabajo la realiza el subconsciente; si la asociación se 
@@ -50,7 +49,6 @@ GUÍA SOBRE COMO FUNCIONA LA MNEMOTECNIA PARA QUE TE ANIMES A CREAR TUS PROPIAS 
 
 
 */
-
 
 
 

@@ -1,5 +1,4 @@
-////  Los métodos escritos aquí buscan ReAbs con elementos en común 
-////  y crean una relacion didactica positiva o negativa entre ellos
+/// Realiza operaciones mnemotécnicas sobre la información dada para aplicar modificaciones a los ejercicios (estímulos) en las hojas de diseño
 (function (deps, factory) {
     if (typeof module === 'object' && typeof module.exports === 'object') {
         var v = factory(require, exports); if (v !== undefined) module.exports = v;
@@ -8,6 +7,8 @@
         define(deps, factory);
     }
 })(["require", "exports"], function (require, exports) {
+    ////  Los métodos escritos aquí buscan ReAbs con elementos en común 
+    ////  y crean una relacion didactica positiva o negativa entre ellos
     ///  ES IMPORTANTE QUE LOS RESULTADOS DE ESTOS MÉTODOS SE ANALICEN CONTINUAMENTE PARA ASEGURAR UNA MEJORA CONTINUA DE ESTA TECNOLOGÍA 
     /*
     
@@ -30,7 +31,6 @@
         o que se buscaba.[fuente wikipedia]
     
         El potencial y utilidad de este método reside en que se vale de la forma natural en que funciona
-    
         la mente, pues siempre se asocia de manera inconsciente la memoria; un recuerdo lleva a otro y ese
         a otro (este es el mismo concepto detrás de los mapas mentales), solo que con la nemotecnia se hará
         de manera consciente. La mayor parte del trabajo la realiza el subconsciente; si la asociación se

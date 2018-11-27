@@ -26,9 +26,29 @@ export class ReAbSelect {
 
 //         	     a) Esta función busca el o los ReAbs con el rank priority más alto.   Si solo hay 1 este se ejecuta
 static	rankPriorityHighest () {
-		 var RankPriorityMaximoJavascript = Acordeones.filter(Acordeones => Acordeones.rank.priority > 2 );
-		 console.log(RankPriorityMaximoJavascript); // 		
-	}
+
+     var CicloPriority = ["AAA","AA","A"];
+
+  for ( let letra of CicloPriority) {
+
+    var RankPriorityMaximoJavascript = Acordeones.filter(Acordeones => Acordeones.rank.priority == letra );
+
+    if (RankPriorityMaximoJavascript.length >= 2) {                            
+            console.log("Hay 2 o más acordeones con rank priority de " + letra);
+            CicloPriority = [];
+
+       }  else if (RankPriorityMaximoJavascript.length == 1) {                          
+            console.log("Hay 1 acordeón con rank priority de " + letra);
+            CicloPriority = [];
+
+     }       else {                                                                     
+            console.log(" NO HAY acordeones con rank priority de " + letra);
+     }
+
+
+  }
+
+}
 
 
 

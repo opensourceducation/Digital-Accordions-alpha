@@ -29,31 +29,32 @@
     //   1.-    ESTE OBJETO DECIDE QUE ReAb O ReAbs SIMULTANEOS SE VAN A EJECUTAR   
     //		
     //		ReAbSelect.rankPriorityHighest();
+    //		ReAbSelect();
     //
     //
     //
     //   2.-   ESTE OBJETO TIENE MÉTODOS QUE DETECTAN EL TIPO DE ReAb QUE SE VA A EJECUTAR      
     //
-    //		ReAbSelect.ReAbType();   
+    //		ReAbType();   
     //
     //
     //
     //  3.-   ESTE OBJETO TIENE MÉTODOS QUE BUSCAN ReAbs DEL MISMO TIPO AL QUE SE VA A EJECUTAR
     //
-    //		ReAbSelect.SimultaneousReAbs();
+    //		SimultaneousReAbs();
     //
     //
     //
     //	4.-   ESTE OBJETO TIENE MÉTODOS QUE deciden que diseño de Ejercicio va a implementarse 
     //
-    //		ReAbSelect.ExcersiceSelect();
+    //		ExcersiceSelect();
     //
     //
     //
     //	5.-   ESTE OBJETO TIENE MÉTODOS QUE aumentan o disminuyen las puntuaciones de Scores de 
     //		  interiorización dentro de/los ReAb(s) ejecutados(s)
     //
-    //		ReAbSelect.ReAbScore();
+    //		ReAbScore();
     //
     //
     //

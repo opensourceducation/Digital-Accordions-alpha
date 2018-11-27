@@ -50,8 +50,8 @@ export let ReAbJSON1 =
   ],
   "rank" : {
     "preferenceOfLearning" : 81,      /// EL ORDEN DE PRIORIDAD DE APRENDIZAJE QUE LE DA EL USUARIO
-    "turn" : null,            /// TURNO DE EJECUCIÓN DEL ReAb (revisar whitepapper)
-    "priority" : null    /// ESTE PARAMETRO SOLO SE ACTIVA CON 1,2 O 3 CUANDO EL ReAb HA SIDO CONTESTADO DE MANERA INCORRECTA.  CUANDO ESTA EN "null" NO SE TOMA EN CUENTA
+    "turn" : null,            /// TURNO DE EJECUCIÓN DEL ReAb 
+    "priority" : null    /// ESTE PARAMETRO SOLO SE ACTIVA CON "AAA" CUANDO EL ReAb HA SIDO CONTESTADO DE MANERA INCORRECTA. "AA" y "A" significa que el ReAb tuvo interacciones positivas luego de la falla.  CUANDO ESTA EN "null" NO SE TOMA EN CUENTA.  De la "Z a la U" indican tiempos prolongados de descanso.
   },
   "info" : {
     "score" : [            /// SE PONDERA EL SCORE DE TODOS LOS PROCESOS PARA SACAR ESTA PUNTUACIÓN
@@ -122,7 +122,7 @@ export let ReAbJSON2 =
   "rank" : {
     "preferenceOfLearning" : 47,
     "turn" : null,
-    "priority" : 2
+    "priority" : "AA"
   },
   "info" : {
     "score" : [
@@ -194,7 +194,7 @@ export let ReAbJSON3 =
   "rank" : {
     "preferenceOfLearning" : 54,
     "turn" : null,
-    "priority" : 1
+    "priority" : "A"
   },
   "info" : {
     "score" : [
@@ -263,7 +263,7 @@ export let ReAbJSON4 =
   "rank" : {
     "preferenceOfLearning" : 19,
     "turn" : null,
-    "priority" : 3
+    "priority" : "AAA"
   },
   "info" : {
     "score" : [
