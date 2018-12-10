@@ -3,11 +3,10 @@
 
 
 
-
 /// Los parametros con " * " carecen actualmente de un standard de escritura bién definido
-/// Los parametros con " ** " probablemente cambien o se eliminen en versiones posteriores
+/// Los parametros con " *** " probablemente cambien o se eliminen en versiones posteriores
 
-/// ReAb v0.0.1
+/// ReAb v0.0.2
 
 export let ReAbJSON1 =
 
@@ -15,7 +14,7 @@ export let ReAbJSON1 =
   "processes " : [
     {
       "process1" : {
-        "question " : [      ///  LAS PREGUNTAS PUEDEN SER 1 PALABRA, UN TEXTO, UNA OPERACIÓN MATEMÁTICA, IMÁGENES, VIDEO, SONIDO O CUALQUIER CANTIDAD DE ELEMENTOS ABSTRACTOS
+        "question? " : [      ///  LAS PREGUNTAS PUEDEN SER 1 PALABRA, UN TEXTO, UNA OPERACIÓN MATEMÁTICA, IMÁGENES, VIDEO, SONIDO O CUALQUIER CANTIDAD DE ELEMENTOS ABSTRACTOS
           null
         ],
         "canvas?" : [        ///  *  GUARDA DATOS ESPACIALES DE COLOCACIÓN DE ELEMENTOS ESPECÍFICOS DE "question"
@@ -24,19 +23,20 @@ export let ReAbJSON1 =
         "resources?" : [     ///  AQUI INDICAS EL RECURSO DE IMAGEN, VIDEO, SONIDO, ETC Y EL ARRAY DE QUESTION AL QUE ESTÁ ASIGNADO
           null
         ],
-        "answer? " : [      ///  GUARDA LOS ELEMENTOS ABSTRACTOS CON RELACIÓN POSITIVA: 1 PALABRA, UN TEXTO, UN RESULTADO MATEMÁTICO, IMÁGENES, VIDEO, SONIDO, ETC..
+        "answer" : [      ///  GUARDA LOS ELEMENTOS ABSTRACTOS CON RELACIÓN POSITIVA: 1 PALABRA, UN TEXTO, UN RESULTADO MATEMÁTICO, IMÁGENES, VIDEO, SONIDO, ETC..
           null
         ],
         "wrong?" : [        ///  GUARDA LOS ELEMENTOS ABSTRACTOS CON RELACIÓN NEGATIVA
           null
         ],
-        "anScore? " : [      /// AQUI SE GUARDAN LOS PUNTAJES DE INTERIORIZACIÓN DE CADA UNO DE LOS ELEMENTOS DE LA RESPUESTA DE MANERA INDIVIDUAL
+        "anScore?" : [      /// AQUI SE GUARDAN LOS PUNTAJES DE INTERIORIZACIÓN DE CADA UNO DE LOS ELEMENTOS DE LA RESPUESTA DE MANERA INDIVIDUAL
           null
         ],
-        "interconections? " : {
+        "interconections?" : {
           "anotations": "ANOTACIONES GUARDADAS EN ESTE PROCESO DEL ReAb",
           "mnemonics": "RELACIONES MNEMOTÉCNICAS QUE GUARDE EL USUARIO",
-          "questionAnswer": "ELEMENTOS EN question QUE TAMBIEN PUEDEN FUNGIR COMO ELEMENTOS answer Y VICEVERSA"
+          "questionAnswer": "ELEMENTOS EN question QUE TAMBIEN PUEDEN FUNGIR COMO ELEMENTOS answer Y VICEVERSA",
+          "reaction": " * Aquí se colocan elementos y/o programan reacciones al activar los elementos de answer o wrong, a nivel general o particular"
         },
         "operations?" : [    ///  *   AQUI SE GUARDA LA DIDACTICA INTERNA espacial/relacional PARA ENSEÑAR AL ReAb A EJECUTAR LA OPERACIÓN MATEMÁTICA
           null
@@ -60,7 +60,7 @@ export let ReAbJSON1 =
     "tags?" : [      /// ETIQUETAS QUE GUARDAN INFORMACIÓN DEL ReAb, DE EJECUCION, Y DE LA VERSION PARA FACILITAR O SUGERIR SU ACTUALIZACIÓN
       null
     ],
-    "school?" : null,      ///  **  Identificadores académicos en caso de que los haya, como nombre de la institución, escudo, etc..
+    "school?" : null,      ///  ***  Identificadores académicos en caso de que los haya, como nombre de la institución, escudo, etc..
     "groupIdentifier?" : [      /// GUARDA UN HISTORIAL DE LOS GRUPOS DE ESTUDIO POR LOS QUE HA PASADO EL ReAb.  ALGUNA DE ESTA INFORMACIÓN ENRIQUECE LAS ETIQUETAS ("tags") para el analisis de datos
       null
     ],
@@ -73,9 +73,7 @@ export let ReAbJSON1 =
 
 
 
-//export {ReAbJSON1};
 
-//debugger;
 
 
 
@@ -86,7 +84,7 @@ export let ReAbJSON2 =
   "processes " : [
     {
       "process1" : {
-        "question " : [
+        "question? " : [
           null
         ],
         "canvas?" : [
@@ -95,19 +93,21 @@ export let ReAbJSON2 =
         "resources?" : [     
           null
         ],
-        "answer? " : [
+        "answer" : [
           null
         ],
         "wrong?" : [
           null
         ],
-        "anScore? " : [
+        "anScore?" : [
           null
         ],
-        "interconections? " : {
+        "interconections?" : {
           "anotations": "",
           "mnemonics": null,
-          "questionAnswer": null
+          "questionAnswer": null,
+          "reaction": null
+
         },
         "operations?" : [
           null
@@ -150,15 +150,13 @@ export let ReAbJSON2 =
 
 
 
-
-
 export let ReAbJSON3 =
 
 {
   "processes " : [
     {
       "process1" : {
-        "question " : [
+        "question? " : [
           null
         ],
         "canvas?" : [
@@ -167,19 +165,20 @@ export let ReAbJSON3 =
         "resources?" : [    
           null
         ],
-        "answer? " : [
+        "answer" : [
           null
         ],
         "wrong?" : [
           null
         ],
-        "anScore? " : [
+        "anScore?" : [
           null
         ],
-        "interconections? " : {
+        "interconections?" : {
           "anotations": "",
           "mnemonics": null,
-          "questionAnswer": null
+          "questionAnswer": null,
+          "reaction": null
         },
         "operations?" : [
           null
@@ -220,14 +219,13 @@ export let ReAbJSON3 =
 
 
 
-
 export let ReAbJSON4 =
 
 {
   "processes " : [
     {
       "process1" : {
-        "question " : [
+        "question?" : [
           null
         ],
         "canvas?" : [
@@ -236,19 +234,20 @@ export let ReAbJSON4 =
         "resources?" : [     
           null
         ],
-        "answer? " : [
+        "answer" : [
           null
         ],
         "wrong?" : [
           null
         ],
-        "anScore? " : [
+        "anScore?" : [
           null
         ],
-        "interconections? " : {
+        "interconections?" : {
           "anotations": "",
           "mnemonics": null,
-          "questionAnswer": null
+          "questionAnswer": null,
+          "reaction": null
         },
         "operations?" : [
           null
@@ -290,15 +289,13 @@ export let ReAbJSON4 =
 
 
 
-
-
 export let ReAbJSON5 =
 
 {
   "processes " : [
     {
       "process1" : {
-        "question " : [
+        "question?" : [
           null
         ],
         "canvas?" : [
@@ -307,19 +304,20 @@ export let ReAbJSON5 =
         "resources?" : [     
           null
         ],
-        "answer? " : [
+        "answer" : [
           null
         ],
         "wrong?" : [
           null
         ],
-        "anScore? " : [
+        "anScore?" : [
           null
         ],
-        "interconections? " : {
+        "interconections?" : {
           "anotations": "",
           "mnemonics": null,
-          "questionAnswer": null
+          "questionAnswer": null,
+          "reaction": null
         },
         "operations?" : [
           null
@@ -363,17 +361,13 @@ export let ReAbJSON5 =
 
 
 
-
-
-
-
 export let ReAbJSON6 =
 
 {
   "processes " : [
     {
       "process1" : {
-        "question " : [
+        "question?" : [
           null
         ],
         "canvas?" : [
@@ -382,19 +376,20 @@ export let ReAbJSON6 =
         "resources?" : [     
           null
         ],
-        "answer? " : [
+        "answer" : [
           null
         ],
         "wrong?" : [
           null
         ],
-        "anScore? " : [
+        "anScore?" : [
           null
         ],
-        "interconections? " : {
+        "interconections?" : {
           "anotations": "",
           "mnemonics": null,
-          "questionAnswer": null
+          "questionAnswer": null,
+          "reaction": null
         },
         "operations?" : [
           null
@@ -434,20 +429,68 @@ export let ReAbJSON6 =
 
 
 
-
-
-
-
 let ReAbDatabase  ;  // Método que convierte toda la base de datos ReAb en objetos de javascript y coloca dicha base de datos en un array llamada ReAbCollection
-
-
-
-
-
-
-
-
-
 
 export let ReAbCollection = [ReAbJSON1,ReAbJSON2,ReAbJSON3,ReAbJSON4,ReAbJSON5,ReAbJSON6];
 
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//                             ReAb CREATOR
+//////////////////////////////////////////////////////////////////////////////////////
+
+/*  
+    MÉTODO DE ESCRITURA RÁPIDO PRÓXIMO A IMPLEMENTAR !
+
+    Falta la creación de las funciones constructoras que convierten 
+    lo escrito aquí en la colección de acordeones personal  
+*/
+
+
+let process;
+let p;
+let P;
+
+
+/// FORMAS DE ESCRIBIR EL ACORDEÓN (ReAb)
+
+//  Escribes el parametro a llenar seguido de un - pegado al parametro            EJEMPLOS:  question-    wrong-    answer-    process-   tags-      reaction- 
+//  También puedes escribir el parametro con su inicial en minuscula o mayuscula  EJEMPLOS:     q-          w-        A-         -P        t-            R-
+
+// EL NUMERO AL PRINCIPIO DEL ARRAY ES EL "preferenceOfLearning" del ReAb
+//  Ningún ReAb de tu colección puede tener el mismo "preferenceOfLearning"
+// Todos los parámetros escritos en string entre cada indicación de process, pertenecen a dicho proceso
+//  Los numeros siguientes del numero de proceso principal, son las ramificaciones de subprocesos
+
+  
+  let  CantidadDeReAbs = 9;
+
+  let CrearReAb1 = [1, process-1-1 ,"answer-git branch respaldo","question- crea una rama nueva llamada respaldo" ,process-2,"question-posicionate en esa rama", "answer-git checkout respaldo"];
+
+  let CrearReAb2 = [4, process-1,"answer-  git branch respaldo","question- crea una rama nueva llamada respaldo" ,process-2,"question- posicionate en esa rama", "answer- git checkout respaldo"];
+
+  let CrearReAb4 = [2, process-1,"answer- git branch respaldo","question- crea una rama nueva llamada respaldo",process - 2,"question-   posicionate en esa rama", "answer-git checkout respaldo"];
+
+  let CrearReAb5 = [3, process -1,"a-git branch respaldo","q- crea una rama nueva llamada respaldo",process -2,"q-posicionate en esa rama", "a-git checkout respaldo"];
+
+  let CrearReAb6 = [9, process-1,"A- git branch respaldo","q-crea una rama nueva llamada respaldo",process- 2,"Q-posicionate en esa rama", "answer-git checkout respaldo"];
+
+    let CrearReAb7 = [6, process-1,"tags- code,console,git-v2.16.2","answer- git branch respaldo","question- crea una rama nueva llamada respaldo",
+                         process-2,"question-posicionate en esa rama", "answer-git checkout respaldo"];
+
+
+  let CrearReAb8 = [7, process-1,"answer- git branch respaldo","question-crea una nueva rama respaldo ","tags-code,console,git-v2.16.2",
+                                                "question-posicionate en esa rama", "answer-git checkout respaldo"];
+
+    let CrearReAb9 = [8, process-1,"A- git branch respaldo","question- crea una nueva rama respaldo", "t- code,console,git-v2.16.2"
+                                                 ,"question-  posicionate en esa rama", "answer-git checkout respaldo"];
+                                              
+
+
+//   Parametros mínimos que debe de tener un ReAb
+   let CrearReAb3 = [5,process-1,"answer- afirmación"];
+
+  

@@ -9,13 +9,13 @@
     }
 })(["require", "exports"], function (require, exports) {
     /// Los parametros con " * " carecen actualmente de un standard de escritura bién definido
-    /// Los parametros con " ** " probablemente cambien o se eliminen en versiones posteriores
-    /// ReAb v0.0.1
+    /// Los parametros con " *** " probablemente cambien o se eliminen en versiones posteriores
+    /// ReAb v0.0.2
     exports.ReAbJSON1 = {
         "processes ": [
             {
                 "process1": {
-                    "question ": [
+                    "question? ": [
                         null
                     ],
                     "canvas?": [
@@ -24,19 +24,20 @@
                     "resources?": [
                         null
                     ],
-                    "answer? ": [
+                    "answer": [
                         null
                     ],
                     "wrong?": [
                         null
                     ],
-                    "anScore? ": [
+                    "anScore?": [
                         null
                     ],
-                    "interconections? ": {
+                    "interconections?": {
                         "anotations": "ANOTACIONES GUARDADAS EN ESTE PROCESO DEL ReAb",
                         "mnemonics": "RELACIONES MNEMOTÉCNICAS QUE GUARDE EL USUARIO",
-                        "questionAnswer": "ELEMENTOS EN question QUE TAMBIEN PUEDEN FUNGIR COMO ELEMENTOS answer Y VICEVERSA"
+                        "questionAnswer": "ELEMENTOS EN question QUE TAMBIEN PUEDEN FUNGIR COMO ELEMENTOS answer Y VICEVERSA",
+                        "reaction": " * Aquí se colocan elementos y/o programan reacciones al activar los elementos de answer o wrong, a nivel general o particular"
                     },
                     "operations?": [
                         null
@@ -69,13 +70,11 @@
             "href?": null /// SE USA COMO SEGUNDO FILTRO CORRABORATIVO DEL LADO DEL BACKEND QUE LOS DATOS DE "internalization", "score" E "identificatorOrQr" NO HAYAN SIDO MODIFICADOS
         }
     };
-    //export {ReAbJSON1};
-    //debugger;
     exports.ReAbJSON2 = {
         "processes ": [
             {
                 "process1": {
-                    "question ": [
+                    "question? ": [
                         null
                     ],
                     "canvas?": [
@@ -84,19 +83,20 @@
                     "resources?": [
                         null
                     ],
-                    "answer? ": [
+                    "answer": [
                         null
                     ],
                     "wrong?": [
                         null
                     ],
-                    "anScore? ": [
+                    "anScore?": [
                         null
                     ],
-                    "interconections? ": {
+                    "interconections?": {
                         "anotations": "",
                         "mnemonics": null,
-                        "questionAnswer": null
+                        "questionAnswer": null,
+                        "reaction": null
                     },
                     "operations?": [
                         null
@@ -133,7 +133,7 @@
         "processes ": [
             {
                 "process1": {
-                    "question ": [
+                    "question? ": [
                         null
                     ],
                     "canvas?": [
@@ -142,19 +142,20 @@
                     "resources?": [
                         null
                     ],
-                    "answer? ": [
+                    "answer": [
                         null
                     ],
                     "wrong?": [
                         null
                     ],
-                    "anScore? ": [
+                    "anScore?": [
                         null
                     ],
-                    "interconections? ": {
+                    "interconections?": {
                         "anotations": "",
                         "mnemonics": null,
-                        "questionAnswer": null
+                        "questionAnswer": null,
+                        "reaction": null
                     },
                     "operations?": [
                         null
@@ -191,7 +192,7 @@
         "processes ": [
             {
                 "process1": {
-                    "question ": [
+                    "question?": [
                         null
                     ],
                     "canvas?": [
@@ -200,19 +201,20 @@
                     "resources?": [
                         null
                     ],
-                    "answer? ": [
+                    "answer": [
                         null
                     ],
                     "wrong?": [
                         null
                     ],
-                    "anScore? ": [
+                    "anScore?": [
                         null
                     ],
-                    "interconections? ": {
+                    "interconections?": {
                         "anotations": "",
                         "mnemonics": null,
-                        "questionAnswer": null
+                        "questionAnswer": null,
+                        "reaction": null
                     },
                     "operations?": [
                         null
@@ -249,7 +251,7 @@
         "processes ": [
             {
                 "process1": {
-                    "question ": [
+                    "question?": [
                         null
                     ],
                     "canvas?": [
@@ -258,19 +260,20 @@
                     "resources?": [
                         null
                     ],
-                    "answer? ": [
+                    "answer": [
                         null
                     ],
                     "wrong?": [
                         null
                     ],
-                    "anScore? ": [
+                    "anScore?": [
                         null
                     ],
-                    "interconections? ": {
+                    "interconections?": {
                         "anotations": "",
                         "mnemonics": null,
-                        "questionAnswer": null
+                        "questionAnswer": null,
+                        "reaction": null
                     },
                     "operations?": [
                         null
@@ -307,7 +310,7 @@
         "processes ": [
             {
                 "process1": {
-                    "question ": [
+                    "question?": [
                         null
                     ],
                     "canvas?": [
@@ -316,19 +319,20 @@
                     "resources?": [
                         null
                     ],
-                    "answer? ": [
+                    "answer": [
                         null
                     ],
                     "wrong?": [
                         null
                     ],
-                    "anScore? ": [
+                    "anScore?": [
                         null
                     ],
-                    "interconections? ": {
+                    "interconections?": {
                         "anotations": "",
                         "mnemonics": null,
-                        "questionAnswer": null
+                        "questionAnswer": null,
+                        "reaction": null
                     },
                     "operations?": [
                         null
@@ -363,5 +367,39 @@
     };
     var ReAbDatabase; // Método que convierte toda la base de datos ReAb en objetos de javascript y coloca dicha base de datos en un array llamada ReAbCollection
     exports.ReAbCollection = [exports.ReAbJSON1, exports.ReAbJSON2, exports.ReAbJSON3, exports.ReAbJSON4, exports.ReAbJSON5, exports.ReAbJSON6];
+    //////////////////////////////////////////////////////////////////////////////////////
+    //
+    //                             ReAb CREATOR
+    //////////////////////////////////////////////////////////////////////////////////////
+    /*
+        MÉTODO DE ESCRITURA RÁPIDO PRÓXIMO A IMPLEMENTAR !
+    
+        Falta la creación de las funciones constructoras que convierten
+        lo escrito aquí en la colección de acordeones personal
+    */
+    var process;
+    var p;
+    var P;
+    /// FORMAS DE ESCRIBIR EL ACORDEÓN (ReAb)
+    //  Escribes el parametro a llenar seguido de un - pegado al parametro            EJEMPLOS:  question-    wrong-    answer-    process-   tags-      reaction- 
+    //  También puedes escribir el parametro con su inicial en minuscula o mayuscula  EJEMPLOS:     q-          w-        A-         -P        t-            R-
+    // EL NUMERO AL PRINCIPIO DEL ARRAY ES EL "preferenceOfLearning" del ReAb
+    //  Ningún ReAb de tu colección puede tener el mismo "preferenceOfLearning"
+    // Todos los parámetros escritos en string entre cada indicación de process, pertenecen a dicho proceso
+    //  Los numeros siguientes del numero de proceso principal, son las ramificaciones de subprocesos
+    var CantidadDeReAbs = 9;
+    var CrearReAb1 = [1, process - 1 - 1, "answer-git branch respaldo", "question- crea una rama nueva llamada respaldo", process - 2, "question-posicionate en esa rama", "answer-git checkout respaldo"];
+    var CrearReAb2 = [4, process - 1, "answer-  git branch respaldo", "question- crea una rama nueva llamada respaldo", process - 2, "question- posicionate en esa rama", "answer- git checkout respaldo"];
+    var CrearReAb4 = [2, process - 1, "answer- git branch respaldo", "question- crea una rama nueva llamada respaldo", process - 2, "question-   posicionate en esa rama", "answer-git checkout respaldo"];
+    var CrearReAb5 = [3, process - 1, "a-git branch respaldo", "q- crea una rama nueva llamada respaldo", process - 2, "q-posicionate en esa rama", "a-git checkout respaldo"];
+    var CrearReAb6 = [9, process - 1, "A- git branch respaldo", "q-crea una rama nueva llamada respaldo", process - 2, "Q-posicionate en esa rama", "answer-git checkout respaldo"];
+    var CrearReAb7 = [6, process - 1, "tags- code,console,git-v2.16.2", "answer- git branch respaldo", "question- crea una rama nueva llamada respaldo",
+        process - 2, "question-posicionate en esa rama", "answer-git checkout respaldo"];
+    var CrearReAb8 = [7, process - 1, "answer- git branch respaldo", "question-crea una nueva rama respaldo ", "tags-code,console,git-v2.16.2",
+        "question-posicionate en esa rama", "answer-git checkout respaldo"];
+    var CrearReAb9 = [8, process - 1, "A- git branch respaldo", "question- crea una nueva rama respaldo", "t- code,console,git-v2.16.2",
+        "question-  posicionate en esa rama", "answer-git checkout respaldo"];
+    //   Parametros mínimos que debe de tener un ReAb
+    var CrearReAb3 = [5, process - 1, "answer- afirmación"];
 });
 //# sourceMappingURL=ReAb-Database.js.map

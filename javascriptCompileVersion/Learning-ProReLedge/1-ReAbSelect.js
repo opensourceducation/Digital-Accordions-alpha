@@ -9,51 +9,73 @@
     var ReAb_Database_1 = require('../ReAb-Database/ReAb-Database');
     var Acordeones = ReAb_Database_1.ReAbCollection;
     console.log(Acordeones);
+    var simultaneous = false;
     ////////////     1.-    ESTE OBJETO DECIDE QUE ReAb O ReAbs SIMULTANEOS SE VAN A EJECUTAR 
-    var ReAbSelect = (function () {
-        function ReAbSelect() {
+    var ReAbSelector = (function () {
+        function ReAbSelector() {
         }
-        //         	     a) Esta función busca el o los ReAbs con el rank priority más alto.   Si solo hay 1 este se ejecuta
-        ReAbSelect.rankPriorityHighest = function () {
-            var CicloPriority = ["AAA", "AA", "A"];
+        //   Esta función busca el o los ReAbs con el rank priority más alto.   Si solo hay 1 este se ejecuta
+        ReAbSelector.chooseRankPriorityHighest = function () {
+            var CicloPriority = ["AAA", "AA", "A", null];
             for (var _i = 0; _i < CicloPriority.length; _i++) {
                 var letra = CicloPriority[_i];
-                var RankPriorityMaximoJavascript = Acordeones.filter(function (Acordeones) { return Acordeones.rank.priority == letra; });
-                if (RankPriorityMaximoJavascript.length >= 2) {
+                exports.ReAbSelect = Acordeones.filter(function (Acordeones) { return Acordeones.rank.priority == letra; });
+                if (exports.ReAbSelect.length >= 2) {
                     console.log("Hay 2 o más acordeones con rank priority de " + letra);
-                    CicloPriority = [];
+                    break;
                 }
-                else if (RankPriorityMaximoJavascript.length == 1) {
+                else if (exports.ReAbSelect.length == 1) {
                     console.log("Hay 1 acordeón con rank priority de " + letra);
-                    CicloPriority = [];
+                    break;
                 }
                 else {
                     console.log(" NO HAY acordeones con rank priority de " + letra);
                 }
             }
         };
-        //                        ** )  Si más de 1 ReAb tiene el rank.priority igual de alto, se ejecuta el método:
-        //                      SimultaneousReAbs.multipleConcepts ()
-        //               b) Si más de 1 ReAb tiene el rank.priority igual de alto, pero no coinciden en el tag "Concepts", 
-        //                  este método selecciona entre estos ReAbs el que tenga el rank.turn en 0
-        ReAbSelect.chooseForRankTurn = function () { };
-        //                           ** )   Si más de 1 ReAb tiene el rank.turn igual de alto, se ejecuta el método:
-        //                      SimultaneousReAbs.multipleConcepts () 
-        //               c) Si más de 1 ReAb tiene el rank.turn en 0, pero no coinciden en el tag "Concepts", este método 
-        //                  selecciona entre estos ReAbs el que tenga el rank.preferenceOfLearning más bajo
-        ReAbSelect.chooseForPreferenceOfLearning = function () { };
-        return ReAbSelect;
+        ReAbSelector.chooseForRankTurn = function () {
+            if (simultaneous == false) {
+                var ReAbMinTurn = [];
+                if (exports.ReAbSelect.length >= 2) {
+                    for (var i = 0; i <= 33; i++) {
+                        if (ReAbMinTurn.length >= 1) {
+                            console.log("1 o más acordeones tienen el mismo rank turn");
+                            exports.ReAbSelect = ReAbMinTurn;
+                            console.log(exports.ReAbSelect);
+                            break;
+                        }
+                        ReAbMinTurn = exports.ReAbSelect.filter(function (ReAbSelecTurn) { return ReAbSelecTurn.rank.turn == i; });
+                    }
+                }
+            }
+        };
+        ReAbSelector.chooseForPreferenceOfLearning = function () {
+            if (simultaneous == false) {
+                var ReAbChooseForLearning = [];
+                if (exports.ReAbSelect.length >= 1) {
+                    for (var i = 0; i <= 999; i++) {
+                        if (ReAbChooseForLearning.length >= 1) {
+                            console.log("Filtro de preferencia de aprendizaje >=1");
+                            exports.ReAbSelect = ReAbChooseForLearning;
+                            console.log(exports.ReAbSelect);
+                            break;
+                        }
+                        ReAbChooseForLearning = exports.ReAbSelect.filter(function (ReAbSelecTurn) { return ReAbSelecTurn.rank.preferenceOfLearning == i; });
+                    }
+                }
+            }
+        };
+        return ReAbSelector;
     })();
-    exports.ReAbSelect = ReAbSelect;
-    ////////////                  2.-    ESTE OBJETO TIENE MÉTODOS QUE DETECTAN EL TIPO DE ReAb QUE SE VA A EJECUTAR 
-    ////                                 y sus propiedades internas     
+    exports.ReAbSelector = ReAbSelector;
+    ////////////                  2.-    ESTE OBJETO TIENE MÉTODOS QUE DETECTAN PROPIEDADES INTERNAS Y EL TIPO DE ReAb QUE SE VA A EJECUTAR    
     var ReAbType = (function () {
         function ReAbType() {
         }
         return ReAbType;
     })();
     exports.ReAbType = ReAbType;
-    ////////////            **      3.-    ESTE OBJETO TIENE MÉTODOS QUE BUSCAN ReAbs DEL MISMO TIPO AL QUE SE VA A EJECUTAR     
+    ////////////                  3.-    ESTE OBJETO TIENE MÉTODOS QUE BUSCAN ReAbs DEL MISMO TIPO AL QUE SE VA A EJECUTAR     
     var SimultaneousReAbs = (function () {
         function SimultaneousReAbs() {
         }
@@ -74,7 +96,7 @@
     })();
     exports.ExcersiceSelect = ExcersiceSelect;
     ////////////                  5.-    ESTE OBJETO TIENE MÉTODOS QUE AUMENTAN O DISMINUYEN LAS PUNTUACIONES DE SCORES DE 
-    ////                                 INTERIORIZACION DENTRO DEL ReAb(s) ejecutado(s)
+    ////                                 INTERIORIZACION DENTRO DEL ReAb(s) EJECUTADO(S)
     var ReAbScore = (function () {
         function ReAbScore() {
         }

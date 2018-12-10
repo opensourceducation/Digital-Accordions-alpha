@@ -1,4 +1,3 @@
-// Aquí se toman las desiciones de ejecución de todos los archivos de ProReLedge según el entorno de Ejecución de Aprendizaje
 (function (deps, factory) {
     if (typeof module === 'object' && typeof module.exports === 'object') {
         var v = factory(require, exports); if (v !== undefined) module.exports = v;
@@ -7,92 +6,137 @@
         define(deps, factory);
     }
 })(["require", "exports", './1-ReAbSelect'], function (require, exports) {
-    // Puedes mandar a llamar alguno de estos módulos en tu entorno de ejecución
-    // O puedes copiar y pegar este código para adherir las funciones a tu entorno de ejecución exportando también los modulos, cuidando siempre de revisar las rutas relativas
     var 1_ReAbSelect_1 = require('./1-ReAbSelect');
-    //    a)   SI SE EJECUTA EN LA PANTALLA DE BLOQUEO "Lockscreen" DEL CELULAR
-    var Lockscreen = (function () {
-        function Lockscreen(seleccionarReAb) {
-            this.seleccionarReAb = 1_ReAbSelect_1.ReAbSelect;
-            seleccionarReAb.rankPriorityHighest();
+    // import {} from '../Exercise-Designs/Code/Console' ;
+    //////////////////////////////////////////////////////////////////////////////////////
+    //
+    //                             AVAILABLE EXERCISES
+    //////////////////////////////////////////////////////////////////////////////////////
+    // Catalogo de ejercicios que ejecuta tu entorno de ejecución
+    var exerciseCatalog = (function () {
+        function exerciseCatalog() {
         }
-        return Lockscreen;
+        return exerciseCatalog;
     })();
-    exports.Lockscreen = Lockscreen;
-    var ejecucionLockscreen = new Lockscreen(1_ReAbSelect_1.ReAbSelect); // ejemplo lockscreen
+    exports.exerciseCatalog = exerciseCatalog;
+    /////////////////////////////////////////////////
+    //      SUGERENCIA DE ESCRITURA ALTERNATIVA
+    //   
+    // export class exerciseCode {}
+    // export class exerciseConcepts {}
+    // export class exerciseMath {}
+    // export class exerciseSpace {}
+    // export class exerciseMixed {}
+    //
+    ////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////
     //
-    //                             Copy Paste para Lockscreen
+    //                             		EXECUTE
     //////////////////////////////////////////////////////////////////////////////////////
-    //
-    //
-    //   1.-    ESTE OBJETO DECIDE QUE ReAb O ReAbs SIMULTANEOS SE VAN A EJECUTAR   
-    //		
-    //		ReAbSelect.rankPriorityHighest();
-    //		ReAbSelect();
-    //
-    //
-    //
-    //   2.-   ESTE OBJETO TIENE MÉTODOS QUE DETECTAN EL TIPO DE ReAb QUE SE VA A EJECUTAR      
-    //
-    //		ReAbType();   
-    //
-    //
-    //
-    //  3.-   ESTE OBJETO TIENE MÉTODOS QUE BUSCAN ReAbs DEL MISMO TIPO AL QUE SE VA A EJECUTAR
-    //
-    //		SimultaneousReAbs();
-    //
-    //
-    //
-    //	4.-   ESTE OBJETO TIENE MÉTODOS QUE deciden que diseño de Ejercicio va a implementarse 
-    //
-    //		ExcersiceSelect();
-    //
-    //
-    //
-    //	5.-   ESTE OBJETO TIENE MÉTODOS QUE aumentan o disminuyen las puntuaciones de Scores de 
-    //		  interiorización dentro de/los ReAb(s) ejecutados(s)
-    //
-    //		ReAbScore();
-    //
-    //
-    //
-    //////////////////////////////////////////////////////////////////////////////////////
-    //    b)   SI SE EJECUTA DE 5 A 10 MINUTOS AL DÍA EN UN ENTORNO WEB O MOVIL
-    var learnSession = (function () {
-        function learnSession() {
+    // Aquí se toman las desiciones de ejecución de todos los archivos de ProReLedge según el entorno de Ejecución de Aprendizaje
+    var learningExecute = (function () {
+        function learningExecute(seleccionarReAb, MultiplesReAbs) {
+            this.seleccionarReAb = 1_ReAbSelect_1.ReAbSelector;
+            this.MultiplesReAbs = 1_ReAbSelect_1.SimultaneousReAbs;
+            seleccionarReAb.chooseRankPriorityHighest();
+            1_ReAbSelect_1.SimultaneousReAbs.multipleConcepts();
+            seleccionarReAb.chooseForRankTurn();
+            1_ReAbSelect_1.SimultaneousReAbs.multipleConcepts();
+            seleccionarReAb.chooseForPreferenceOfLearning();
         }
-        return learnSession;
+        return learningExecute;
     })();
-    exports.learnSession = learnSession;
+    exports.learningExecute = learningExecute;
+    //////////////////////////////////////////////////////////////////////////////////////
+    //
+    //                             LEARNING ENVIRONMENTS
+    //////////////////////////////////////////////////////////////////////////////////////
+    // Entornos de aprendizaje interesantes en los que puede usarse ProReLedge
+    // Puedes mandar a llamar alguno de estos objetos en tu entorno de ejecución
+    // Puedes copiar y pegar código, links o cualquier tipo de sugerencias para mejorar y/o completar el funcionamiento del entorno de ejecución específico
+    var learningEnvironments = (function () {
+        function learningEnvironments() {
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////
+        //
+        //    	a)   SI SE EJECUTA EN LA PANTALLA DE BLOQUEO "Lockscreen" DEL CELULAR
+        learningEnvironments.LockScreen = function () {
+        };
+        //////////////////////////////////////////////////////////////////////////////////////
+        //
+        //                             copy paste o sugerencias para LockScreen
+        //////////////////////////////////////////////////////////////////////////////////////
+        //
+        //
+        //
+        //		
+        //		
+        //
+        //
+        //
+        //
+        //
+        //
+        //////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        //
+        //    b) PEQUEÑOS CICLOS DE APRENDIZAJE DURANTE EL DÍA RECORDADOS CON UN AVISO DEL NAVEGADOR
+        learningEnvironments.MicroLearning = function () {
+            for (var i = 0; i < 12; ++i) {
+                var MicroLearningExecute = new learningExecute(1_ReAbSelect_1.ReAbSelector, 1_ReAbSelect_1.SimultaneousReAbs);
+            }
+        };
+        //////////////////////////////////////////////////////////////////////////////////////
+        //
+        //                             copy paste o sugerencias para learnSession
+        //////////////////////////////////////////////////////////////////////////////////////
+        //
+        //
+        //
+        //		
+        //		
+        //
+        //
+        //
+        //
+        //
+        //
+        //////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        //
+        //   	 c)   SI SE EJECUTA DE 5 A 10 MINUTOS AL DÍA EN UN ENTORNO WEB O MOVIL
+        learningEnvironments.LearnSession = function () {
+        };
+        //////////////////////////////////////////////////////////////////////////////////////
+        //
+        //                             copy paste o sugerencias para LockScreen
+        //////////////////////////////////////////////////////////////////////////////////////
+        //
+        //
+        //
+        //		
+        //		
+        //
+        //
+        //
+        //
+        //
+        //
+        //////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        //
+        //  				  d)	VIDEOJUEGOS QUE EJECUTEN LOS ACORDEONES 
+        learningEnvironments.VideoGame = function () {
+        };
+        return learningEnvironments;
+    })();
+    exports.learningEnvironments = learningEnvironments;
+    //////////////////////////////////////////////////////////////////////////////////////
+    //
+    //                          ENTORNO DISPONIBLE MicroLearning ()
+    //        Falta terminar exercise select y ReAbScore Para ejecución exitosa
+    //////////////////////////////////////////////////////////////////////////////////////
+    learningEnvironments.MicroLearning();
 });
-//////////////////////////////////////////////////////////////////////////////////////
-//
-//                             copy paste para learnSession
-//////////////////////////////////////////////////////////////////////////////////////
-//
-//
-//
-//		
-//		
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //////////////////////////////////////////////////////////////////////////////////////
 //# sourceMappingURL=3-ReAbExecute.js.map
