@@ -1,51 +1,54 @@
 //////   ESTE MODULO GUARDA LA BASE DE DATOS ReAb DEL USUARIO PARA EXPORTARSE Y USARSE EN LEARNING PRORELEDGE
 /////    LA IMPORTACION DEBE DE SER CAPAZ DE FUNCIONAR SIN IMPORTAR SI SE TRATA DE OBJETOS DE JAVASCRIPT, JSON, MONGO DB, SQL O CUALQUIER BASE DE DATOS USADA POR EL DESARROLLADOR PARA EL PROYECTO
 
+/// MÉTODO DE ESCRITURA RÁPIDA  "ReAb CREATOR"  EN LINEA 455 
 
 
 /// Los parametros con " * " carecen actualmente de un standard de escritura bién definido
 /// Los parametros con " *** " probablemente cambien o se eliminen en versiones posteriores
 
-/// ReAb v0.0.2
+/// ReAb v0.0.3
 
 export let ReAbJSON1 =
 
 {
-  "processes " : [
-    {
-      "process1" : {
-        "question? " : [      ///  LAS PREGUNTAS PUEDEN SER 1 PALABRA, UN TEXTO, UNA OPERACIÓN MATEMÁTICA, IMÁGENES, VIDEO, SONIDO O CUALQUIER CANTIDAD DE ELEMENTOS ABSTRACTOS
-          null
-        ],
-        "canvas?" : [        ///  *  GUARDA DATOS ESPACIALES DE COLOCACIÓN DE ELEMENTOS ESPECÍFICOS DE "question"
-          null
-        ],
-        "resources?" : [     ///  AQUI INDICAS EL RECURSO DE IMAGEN, VIDEO, SONIDO, ETC Y EL ARRAY DE QUESTION AL QUE ESTÁ ASIGNADO
-          null
-        ],
-        "answer" : [      ///  GUARDA LOS ELEMENTOS ABSTRACTOS CON RELACIÓN POSITIVA: 1 PALABRA, UN TEXTO, UN RESULTADO MATEMÁTICO, IMÁGENES, VIDEO, SONIDO, ETC..
-          null
-        ],
-        "wrong?" : [        ///  GUARDA LOS ELEMENTOS ABSTRACTOS CON RELACIÓN NEGATIVA
-          null
-        ],
-        "anScore?" : [      /// AQUI SE GUARDAN LOS PUNTAJES DE INTERIORIZACIÓN DE CADA UNO DE LOS ELEMENTOS DE LA RESPUESTA DE MANERA INDIVIDUAL
-          null
-        ],
-        "interconections?" : {
-          "anotations": "ANOTACIONES GUARDADAS EN ESTE PROCESO DEL ReAb",
-          "mnemonics": "RELACIONES MNEMOTÉCNICAS QUE GUARDE EL USUARIO",
-          "questionAnswer": "ELEMENTOS EN question QUE TAMBIEN PUEDEN FUNGIR COMO ELEMENTOS answer Y VICEVERSA",
-          "reaction": " * Aquí se colocan elementos y/o programan reacciones al activar los elementos de answer o wrong, a nivel general o particular"
-        },
-        "operations?" : [    ///  *   AQUI SE GUARDA LA DIDACTICA INTERNA espacial/relacional PARA ENSEÑAR AL ReAb A EJECUTAR LA OPERACIÓN MATEMÁTICA
-          null
-        ],
-        "space?" : [      ///  *  AQUÍ SE GUARDAN COORDENADAS Y AREAS DE LA PANTALLA CON FORMAS GEOMETRICAS QUE AL PULSAR O INTERACTUAR DE MANERA CORRECTA, RESUELVE EL ReAb O PASA AL SIGUIENTE PROCESO
-          null
-        ],
-        "globalScore" : 0      /// SE PONDERAN LOS PUNTAJES DE "anScore?" PARA SACAR UN PUNTAJE GLOBAL CORRESPONDIENTE A ESTE PROCESO ESPECIFICO
-      }
+  "process" : [
+    { 
+      "processId" : [       /// El primer numero corresponde al proceso, y es el único que avanza incrementalmente, los numeros "string" del array [1] en delante en caso de que los haya, son un identificador del subproceso en caso de bifurcaciones //  (EJM: 2,"1") (EJM: 2,"2") (EJM: 2,"2","1")  //         
+        1
+      ],
+      "question?" : [      ///  LAS PREGUNTAS PUEDEN SER 1 PALABRA, UN TEXTO, UNA OPERACIÓN MATEMÁTICA, IMÁGENES, VIDEO, SONIDO O CUALQUIER CANTIDAD DE ELEMENTOS ABSTRACTOS 
+        "Agrega todos tus archivos al working area"
+      ],
+      "canvas?" : [       ///  *  GUARDA DATOS ESPACIALES DE COLOCACIÓN DE ELEMENTOS ESPECÍFICOS DE "question"
+        null
+      ],
+      "answer" : [        ///  GUARDA LOS ELEMENTOS ABSTRACTOS CON RELACIÓN POSITIVA: 1 PALABRA, UN TEXTO, UN RESULTADO MATEMÁTICO, IMÁGENES, VIDEO, SONIDO, ETC..
+        "git add --a"
+      ],
+      "wrong?" : [        ///  GUARDA LOS ELEMENTOS ABSTRACTOS CON RELACIÓN NEGATIVA
+        null
+      ],
+      "anScore" : [       ///  AQUI SE GUARDAN LOS PUNTAJES DE INTERIORIZACIÓN DE CADA UNO DE LOS ELEMENTOS "answer" DE MANERA INDIVIDUAL // Y EN EL ARRAY [0] SE GUARDA LA PUNTUACIÓN TOTAL DEL PROCESO EN BASE A LA PONDERACION DE LOS DEMÁS ARRAYS  
+        0,0
+      ],
+      "interconections?" : {
+        "anotations": ["ANOTACIONES GUARDADAS EN ESTE PROCESO DEL ReAb"],
+        "mnemonics": ["RELACIONES MNEMOTÉCNICAS QUE GUARDE EL USUARIO"],
+        "questionAnswer": ["ELEMENTOS EN question QUE TAMBIEN PUEDEN FUNGIR COMO ELEMENTOS answer Y VICEVERSA"],
+        "questAuxResources": ["../recursos/ruta_de_ejemplo/imagen.jpg", ": a"],    /// Recursos complementarios a la presentación de la pregunta  //  RUTA(S) DE IMAGEN, VIDEO, SONIDO, ETC Y EL ARRAY DE QUESTION AL QUE ESTÁ ASIGNADO
+        "reaction": [" * Aquí se colocan elementos y/o programan reacciones al activar los elementos de answer o wrong, a nivel general o particular"],
+        "processReactionMap": ["git checkout -B respaldo :: 2,2 "]   //// Programas rutas entre los elementos answer activados y bifurcaciones específicas "branch" en los siguientes procesos  // la ruta destino es la indicada despues de  " :: "
+      },
+      "operations?" : [    ///  *   AQUI SE GUARDA LA DIDACTICA INTERNA espacial/relacional PARA ENSEÑAR AL ReAb A EJECUTAR LA OPERACIÓN MATEMÁTICA
+        null
+      ],
+      "space?" : [      ///  *  AQUÍ SE GUARDAN COORDENADAS Y AREAS DE LA PANTALLA CON FORMAS GEOMETRICAS QUE AL PULSAR O INTERACTUAR DE MANERA CORRECTA, RESUELVE EL ReAb O PASA AL SIGUIENTE PROCESO
+        null
+      ],
+      "branch?" : [    /// La ramificación de objetos subprocesos en caso de que los haya, son guardados aquí
+        null
+      ]
     }
   ],
   "rank" : {
@@ -81,43 +84,44 @@ export let ReAbJSON1 =
 export let ReAbJSON2 =
 
 {
-  "processes " : [
-    {
-      "process1" : {
-        "question? " : [
-          null
-        ],
-        "canvas?" : [
-          null
-        ],
-        "resources?" : [     
-          null
-        ],
-        "answer" : [
-          null
-        ],
-        "wrong?" : [
-          null
-        ],
-        "anScore?" : [
-          null
-        ],
-        "interconections?" : {
-          "anotations": "",
-          "mnemonics": null,
-          "questionAnswer": null,
-          "reaction": null
-
-        },
-        "operations?" : [
-          null
-        ],
-        "space?" : [
-          null
-        ],
-        "globalScore" : 0
-      }
-    }
+  "process" : [
+    { 
+      "processId" : [ 
+        1                  
+      ],
+      "question?" : [ 
+        "Crea la rama respaldo"
+      ],
+      "canvas?" : [
+        null
+      ],
+      "answer" : [
+        "git branch respaldo", "git checkout -B respaldo", "git checkout -b respaldo" 
+      ],
+      "wrong?" : [
+        null
+      ],
+      "anScore" : [
+        0,0
+      ],
+      "interconections?" : {
+        "anotations": [""],
+        "mnemonics": [null],
+        "questionAnswer": [null],
+        "questAuxResources": [null],
+        "reaction": [null],
+        "processReactionMap": [null]        
+      },
+      "operations?" : [
+        null
+      ],
+      "space?" : [
+        null
+      ],
+      "branch?" : [
+        null
+      ]
+    } 
   ],
   "rank" : {
     "preferenceOfLearning" : 47,
@@ -153,42 +157,44 @@ export let ReAbJSON2 =
 export let ReAbJSON3 =
 
 {
-  "processes " : [
-    {
-      "process1" : {
-        "question? " : [
-          null
-        ],
-        "canvas?" : [
-          null
-        ],
-        "resources?" : [    
-          null
-        ],
-        "answer" : [
-          null
-        ],
-        "wrong?" : [
-          null
-        ],
-        "anScore?" : [
-          null
-        ],
-        "interconections?" : {
-          "anotations": "",
-          "mnemonics": null,
-          "questionAnswer": null,
-          "reaction": null
-        },
-        "operations?" : [
-          null
-        ],
-        "space?" : [
-          null
-        ],
-        "globalScore" : 0
-      }
-    }
+  "process" : [
+    { 
+      "processId" : [ 
+        1
+      ],
+      "question?" : [ 
+        "Borrar rama respaldo"
+      ],
+      "canvas?" : [
+        null
+      ],
+      "answer" : [
+        "git branch -d respaldo", "git branch -D respaldo"
+      ],
+      "wrong?" : [
+        null
+      ],
+      "anScore" : [
+        0,0
+      ],
+      "interconections?" : {
+        "anotations": [""],
+        "mnemonics": [null],
+        "questionAnswer": [null],
+        "questAuxResources": [null],
+        "reaction": [null],
+        "processReactionMap": [null]        
+      },
+      "operations?" : [
+        null
+      ],
+      "space?" : [
+        null
+      ],
+      "branch?" : [
+        null
+      ]
+    } 
   ],
   "rank" : {
     "preferenceOfLearning" : 54,
@@ -222,42 +228,44 @@ export let ReAbJSON3 =
 export let ReAbJSON4 =
 
 {
-  "processes " : [
-    {
-      "process1" : {
-        "question?" : [
-          null
-        ],
-        "canvas?" : [
-          null
-        ],
-        "resources?" : [     
-          null
-        ],
-        "answer" : [
-          null
-        ],
-        "wrong?" : [
-          null
-        ],
-        "anScore?" : [
-          null
-        ],
-        "interconections?" : {
-          "anotations": "",
-          "mnemonics": null,
-          "questionAnswer": null,
-          "reaction": null
-        },
-        "operations?" : [
-          null
-        ],
-        "space?" : [
-          null
-        ],
-        "globalScore" : 0
-      }
-    }
+  "process" : [
+    { 
+      "processId" : [ 
+        1
+      ],
+      "question?" : [ 
+        "Copia el repositorio 34tghash"
+      ],
+      "canvas?" : [
+        null
+      ],
+      "answer" : [
+        "git cherry-pick 34tghash"
+      ],
+      "wrong?" : [
+        null
+      ],
+      "anScore" : [
+        0,0
+      ],
+      "interconections?" : {
+        "anotations": [""],
+        "mnemonics": [null],
+        "questionAnswer": [null],
+        "questAuxResources": [null],
+        "reaction": [null],
+        "processReactionMap": [null]  
+      },
+      "operations?" : [
+        null
+      ],
+      "space?" : [
+        null
+      ],
+      "branch?" : [
+        null
+      ]
+    } 
   ],
   "rank" : {
     "preferenceOfLearning" : 19,
@@ -292,42 +300,44 @@ export let ReAbJSON4 =
 export let ReAbJSON5 =
 
 {
-  "processes " : [
-    {
-      "process1" : {
-        "question?" : [
-          null
-        ],
-        "canvas?" : [
-          null
-        ],
-        "resources?" : [     
-          null
-        ],
-        "answer" : [
-          null
-        ],
-        "wrong?" : [
-          null
-        ],
-        "anScore?" : [
-          null
-        ],
-        "interconections?" : {
-          "anotations": "",
-          "mnemonics": null,
-          "questionAnswer": null,
-          "reaction": null
-        },
-        "operations?" : [
-          null
-        ],
-        "space?" : [
-          null
-        ],
-        "globalScore" : 0
-      }
-    }
+  "process" : [
+    { 
+      "processId" : [ 
+        1
+      ],
+      "question?" : [ 
+        "Sube tu proyecto en la rama master a un servidor remoto"
+      ],
+      "canvas?" : [
+        null
+      ],
+      "answer" : [
+        "git push origin master", "git push -u origin master", "git push -f origin master"
+      ],
+      "wrong?" : [
+        null
+      ],
+      "anScore" : [
+        0,0
+      ],
+      "interconections?" : {
+        "anotations": [""],
+        "mnemonics": [null],
+        "questionAnswer": [null],
+        "questAuxResources": [null],
+        "reaction": [null],
+        "processReactionMap": [null]  
+      },
+      "operations?" : [
+        null
+      ],
+      "space?" : [
+        null
+      ],
+      "branch?" : [
+        null
+      ]
+    } 
   ],
   "rank" : {
     "preferenceOfLearning" : 89,
@@ -364,47 +374,49 @@ export let ReAbJSON5 =
 export let ReAbJSON6 =
 
 {
-  "processes " : [
-    {
-      "process1" : {
-        "question?" : [
-          null
-        ],
-        "canvas?" : [
-          null
-        ],
-        "resources?" : [     
-          null
-        ],
-        "answer" : [
-          null
-        ],
-        "wrong?" : [
-          null
-        ],
-        "anScore?" : [
-          null
-        ],
-        "interconections?" : {
-          "anotations": "",
-          "mnemonics": null,
-          "questionAnswer": null,
-          "reaction": null
-        },
-        "operations?" : [
-          null
-        ],
-        "space?" : [
-          null
-        ],
-        "globalScore" : 0
-      }
-    }
+  "process" : [
+    { 
+      "processId" : [ 
+        1
+      ],
+      "question?" : [ 
+        null
+      ],
+      "canvas?" : [
+        null
+      ],
+      "answer" : [
+        null
+      ],
+      "wrong?" : [
+        null
+      ],
+      "anScore" : [
+        0,0
+      ],
+      "interconections?" : {
+        "anotations": [""],
+        "mnemonics": [null],
+        "questionAnswer": [null],
+        "questAuxResources": [null],
+        "reaction": [null],
+        "processReactionMap": [null]  
+      },
+      "operations?" : [
+        null
+      ],
+      "space?" : [
+        null
+      ],
+      "branch?" : [
+        null
+      ]
+    } 
   ],
   "rank" : {
     "preferenceOfLearning" : 92,
     "turn" : null,
-    "priority" : null
+    "priority" : "Z"
   },
   "info" : {
     "score" : [
@@ -493,4 +505,4 @@ let P;
 //   Parametros mínimos que debe de tener un ReAb
    let CrearReAb3 = [5,process-1,"answer- afirmación"];
 
-  
+  ///   Internamente también debe de contar con anScore 0,0 / score 0 / Y por lo menos un tag de los siguientes: Math, Code, Concepts, Space.

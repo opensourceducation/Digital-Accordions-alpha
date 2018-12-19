@@ -1,4 +1,4 @@
-import {ReAbSelector,ReAbType,SimultaneousReAbs,ExcersiceSelect,ReAbScore} from './1-ReAbSelect';
+import {ReAbSelector,ReAbType,SimultaneousReAbs,ExcersiceSelect,ReAbScore,ReAbSelect,process_to_score,ReAbPosition,summation,writtenAnswer,simultaneous} from './1-ReAbSelect';
 import {} from './2-mnemonics' ;
 // import {} from '../Exercise-Designs/Code/Console' ;
 
@@ -45,18 +45,21 @@ export class exerciseCatalog {
 
 export class learningExecute {
 
-		seleccionarReAb = ReAbSelector;
-		MultiplesReAbs = SimultaneousReAbs;
+    seleccionarReAb = ReAbSelector;
+    MultiplesReAbs = SimultaneousReAbs;
+    puntuacion = ReAbScore;
 
-	constructor(seleccionarReAb,MultiplesReAbs){
+  constructor(seleccionarReAb,MultiplesReAbs,puntuacion){
 
-  		seleccionarReAb.chooseRankPriorityHighest();                                             
+        seleccionarReAb.chooseRankPriorityHighest();                                             
         SimultaneousReAbs.multipleConcepts();
         seleccionarReAb.chooseForRankTurn();
         SimultaneousReAbs.multipleConcepts();
         seleccionarReAb.chooseForPreferenceOfLearning();
+        seleccionarReAb.selectProcess();
+        puntuacion.collectionPosition ();
 
-	}
+  }
 
 }
 
@@ -114,12 +117,36 @@ export class learningEnvironments {
 		//    b) PEQUEÑOS CICLOS DE APRENDIZAJE DURANTE EL DÍA RECORDADOS CON UN AVISO DEL NAVEGADOR
 
 		static MicroLearning () {
+        
+        let MicroLearningExecute= new learningExecute (ReAbSelector,SimultaneousReAbs,ReAbScore); 
 
-			for (var i = 0; i < 12; ++i) {
-				
-				let MicroLearningExecute= new learningExecute (ReAbSelector,SimultaneousReAbs); 
-			}
-		}
+// ARCHIVO console.js
+        let question = document.getElementById("questionReAb");
+        let textBox = document.getElementById("answerBox");
+
+// TEXTO DE LA PREGUNTA EN LA PARTE SUPERIOR DE LA CONSOLA
+        question.textContent = ReAbSelect[0].process[0]["question?"];
+        textBox.addEventListener("keyup", function(tecla){
+
+            if (tecla.key == "Enter" ){
+        
+        // RESPUESTA ESCRITA POR EL USUARIO
+              writtenAnswer = document.getElementById("answerBox").value;
+
+              console.log ("process_to_score =");
+              console.log (process_to_score);
+
+              ReAbScore.score ();                                          
+              document.getElementById("answerBox").value = "";
+
+              let MicroLearningExecuteEnter = new learningExecute (ReAbSelector,SimultaneousReAbs,ReAbScore);         
+
+// TEXTO DE LA PREGUNTA EN LA PARTE SUPERIOR DE LA CONSOLA
+        question.textContent = ReAbSelect[0].process[0]["question?"];
+
+            }           
+        })
+    }
 
 		//////////////////////////////////////////////////////////////////////////////////////
 		//
