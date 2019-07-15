@@ -1,1 +1,0 @@
-//# sourceMappingURL=scoreMnemonics-global.js.map

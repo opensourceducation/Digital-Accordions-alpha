@@ -1,10 +1,13 @@
 {
   "name": "ProReLedge",
-  "version": "0.0.1",
-  "description": "Tecnología de aprendizaje y mapeo cognitivo de código abierto",
-  "main": "index.html",
+  "version": "0.1.0",
+  "description": "Librería para usar acordeones digitales como herramienta de aprendizaje autodidacta, o para el desarrollo o mejora de aplicaciones EdTech",
+  "main": "ProReLedge_build/ProReLedge.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "build": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,14 @@
   "bugs": {
     "url": "https://github.com/opensourceducation/ProReLedge/issues"
   },
-  "homepage": "https://github.com/opensourceducation/ProReLedge#readme"
+  "homepage": "https://github.com/opensourceducation/ProReLedge#readme",
+  "devDependencies": {
+    "@babel/core": "7.5.4",
+    "@babel/preset-env": "7.5.4",
+    "babel-jest": "24.8.0",
+    "babel-loader": "8.0.6",
+    "jest": "24.8.0",
+    "webpack": "4.35.3",
+    "webpack-cli": "3.3.5"
+  }
 }
