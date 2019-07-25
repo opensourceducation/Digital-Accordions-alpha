@@ -1,24 +1,19 @@
-//import {} from '';
 import {createReAb} from './createReAbs/createReAbs.js';
-import {fastWritingStandardConverter} from './createReAbs/fastWritingStandardConverter.js';
-import {fastArrayStandardConverter} from './createReAbs/fastArrayStandardConverter.js';
 
-export const ReAb = {
-	create: (objectOrString) => {
-		if(typeof objectOrString === "object"){
-			return createReAb(objectOrString);
-		} 
-		else if(typeof objectOrString === "array" && objectOrString[0] == 1){
-			return fastArrayStandardConverter(objectOrString);
-		} 
-		else if(typeof objectOrString === "array" && typeof objectOrString[0] === "object"){
-			return createReAb(objectOrString);
-		} 
-		else if(typeof objectOrString === "string"){
-			return fastWritingStandardConverter(objectOrString);
-		} 
-		else {
-			return console.error('The argument can be only a "string" or an "object"');
-		}
+/**
+ *  
+ * @return {ReAbNestedObject} si solo se paso el primer argumento
+ * @return {ReAbCollectionArray} Si se pasó un segundo argumento de salida o destino
+ * 
+ * 
+ * solo certificará que los argumentos sean validos y retornara console.error si no
+ * La redirección de los procesos se hará en createReAb() o en una función que convierte el
+ * parametro sin importar que sea, y retorna siempre un array con 1 o más objetos dentro para
+ * manejar el resultado en ReAb.create()
+ * 
+ */
+export const ReAb = {  
+	create: (objectOrString,ArrayCollectionOutput) => {
+		return createReAb(objectOrString);   
 	}
-} 
+}; 

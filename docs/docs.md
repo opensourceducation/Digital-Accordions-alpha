@@ -69,7 +69,7 @@ Si quieres crear un acordeón de multiples procesos sin escritura rápida, manda
 Si quieres que tenga bifurcaciones dentro de los procesos:
 `ReAb.create([
 			  {answer: ["git log", "git log --oneline"], 
-			   router": ["git add . :: 2,2 ","git add -a :: 2,2 "]
+			   router: ["git add . :: 2,2 ","git add -a :: 2,2 "]
 			  },
               {answer: ["git add .", "git add -a"],
                branch:[

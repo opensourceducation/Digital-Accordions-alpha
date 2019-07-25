@@ -25,7 +25,7 @@ Su implementación es agnóstica de la experiencia de apredizaje, y puede usarse
 `npm install ProReLedge --save`
 
 
-#Uso
+# Uso
 `import ReAb from 'ProReLedge'`
 
 
