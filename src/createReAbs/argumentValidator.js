@@ -1,4 +1,3 @@
-import {createReAb} from './createReAbs.js';
 import {fastWritingStandardConverter} from './fastWritingStandardConverter.js';
 import {fastArrayStandardConverter} from './fastArrayStandardConverter.js';
 
@@ -17,18 +16,18 @@ export const argumentValidator = (argumentToValidate) => {
         return console.log("array fast writing"); 
     }
     else if(Array.isArray(argumentToValidate) && typeof argumentToValidate[0] == "object"){
-        let argumentToValidateCopy = accomodateKeyArgumentsInArrayZero(argumentToValidate);
-        return argumentToValidateCopy;  
+        const argumentToValidateCopy = accomodateKeyArgumentsInArrayZero(argumentToValidate);
+        return [argumentToValidateCopy];  
     } 
     else if(typeof argumentToValidate === "object" && !Array.isArray(argumentToValidate)){
-        return [argumentToValidate];
+        return [[argumentToValidate]];
     } 
     else if(typeof argumentToValidate === "string"){
        // let PseudoReAbObject = fastWritingStandardConverter(argumentToValidate);
         return console.log("string :)"); 
     } 
     else {
-        return console.error('The argument can be only a "string" "array" or an "object" for more information visit https://opensourceducation.github.io/ProReLedge/docs');
+        return console.error('The third argument can be only a "string" "array" or an "object" for more information visit https://opensourceducation.github.io/ProReLedge/docs');
     }
 }
 
@@ -46,14 +45,14 @@ export const argumentValidator = (argumentToValidate) => {
 const accomodateKeyArgumentsInArrayZero = (arrayArgument) => {
     let arrayArgumentCopy = arrayArgument;
 
-    let ReAbTags = arrayArgument[0].tags ? arrayArgument[0].tags : arrayArgument[0].tag ? arrayArgument[0].tag : arrayArgument[0].etiqueta ? arrayArgument[0].etiqueta : arrayArgument[0].etiquetas ? arrayArgument[0].etiquetas : null;
-    let ReAbLicense = arrayArgument[0].license ? arrayArgument[0].license : arrayArgument[0].licencia ? arrayArgument[0].licencia : "MIT";
-	let ReAbType = arrayArgument[0].type ? arrayArgument[0].type : arrayArgument[0].types ? arrayArgument[0].types : arrayArgument[0].tipo ? arrayArgument[0].tipo : arrayArgument[0].tipos ? arrayArgument[0].tipos : null;
-	let ReAbSchool = arrayArgument[0].school ? arrayArgument[0].school : null;
-	let ReabIdentificatorOrQr = arrayArgument[0].identificatorOrQr ? arrayArgument[0].identificatorOrQr : null;
-    let ReAbGroupIdentifier = arrayArgument[0].groupIdentifier ? arrayArgument[0].groupIdentifier: null;
-    let ternaryElements = [ReAbTags,ReAbLicense,ReAbType,ReAbSchool,ReabIdentificatorOrQr,ReAbGroupIdentifier];
-    var objectElements = {  
+    const ReAbTags = arrayArgument[0].tags ? arrayArgument[0].tags : arrayArgument[0].tag ? arrayArgument[0].tag : arrayArgument[0].etiqueta ? arrayArgument[0].etiqueta : arrayArgument[0].etiquetas ? arrayArgument[0].etiquetas : null;
+    const ReAbLicense = arrayArgument[0].license ? arrayArgument[0].license : arrayArgument[0].licencia ? arrayArgument[0].licencia : "MIT";
+	const ReAbType = arrayArgument[0].type ? arrayArgument[0].type : arrayArgument[0].types ? arrayArgument[0].types : arrayArgument[0].tipo ? arrayArgument[0].tipo : arrayArgument[0].tipos ? arrayArgument[0].tipos : null;
+	const ReAbSchool = arrayArgument[0].school ? arrayArgument[0].school : null;
+	const ReabIdentificatorOrQr = arrayArgument[0].identificatorOrQr ? arrayArgument[0].identificatorOrQr : null;
+    const ReAbGroupIdentifier = arrayArgument[0].groupIdentifier ? arrayArgument[0].groupIdentifier: null;
+    const ternaryElements = [ReAbTags,ReAbLicense,ReAbType,ReAbSchool,ReabIdentificatorOrQr,ReAbGroupIdentifier];
+    let objectElements = {  
                             tags: ReAbTags == null ? [] : Array.isArray(ReAbTags) ? ReAbTags : [ReAbTags], 
                             license: ReAbLicense == null ? [] : Array.isArray(ReAbLicense) ? ReAbLicense : [ReAbLicense], 
                             type: ReAbType == null ? [] : Array.isArray(ReAbType) ? ReAbType : [ReAbType], 
@@ -61,7 +60,7 @@ const accomodateKeyArgumentsInArrayZero = (arrayArgument) => {
                             identificatorOrQr: ReabIdentificatorOrQr == null ? [] : Array.isArray(ReabIdentificatorOrQr) ? ReabIdentificatorOrQr : [ReabIdentificatorOrQr], 
                             groupIdentifier: ReAbGroupIdentifier == null ? [] : Array.isArrary(ReAbGroupIdentifier) ? ReAbGroupIdentifier : [ReAbGroupIdentifier]
                         };
-    let stringElements = ["tags","license","type","school","identificatorOrQr","groupIdentifier"];
+    const stringElements = ["tags","license","type","school","identificatorOrQr","groupIdentifier"];
 
     let diferentNamedForParameters = new Array(6);
     diferentNamedForParameters[0] = ["tags","tag","etiqueta","etiquetas"];
@@ -72,9 +71,10 @@ const accomodateKeyArgumentsInArrayZero = (arrayArgument) => {
     diferentNamedForParameters[5] = ["groupIdentifier","groupId","groups","grupos"];
 
     for(var i=0; i < ternaryElements.length; i++){
-        objectElements[stringElements[i]] = 
-        passDispersedElementsToTheArrayZero (arrayArgument,diferentNamedForParameters[i],objectElements[stringElements[i]]);
+        
+        objectElements[stringElements[i]] = passDispersedElementsToTheArrayZero (arrayArgument,diferentNamedForParameters[i],objectElements[stringElements[i]]);
         arrayArgumentCopy[0][stringElements[i]] = objectElements[stringElements[i]];
+
         if(arrayArgumentCopy[0][stringElements[i]] == null) { delete arrayArgumentCopy[0][stringElements[i]];}
         if(i == (ternaryElements.length-1)){
             return arrayArgumentCopy;

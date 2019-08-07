@@ -10,16 +10,32 @@
  * 
  */
 export const typeValidator = (ReAbType,tags) => {
-    let tagsArray = typeof tags != "object" ? [tags] : tags;
+	let tagsArray =  typeof tags != "object" ? [tags] :  tags;  
+
+	
 
 	if (ReAbType === null && tags === null){
+		console.log("ambos son null");
 		return ["Concepts"]
-	} else if (ReAbType != null && tags != null){
-		let unionTags = tagsArray.splice(tags.length,0,ReAbType);
-		return foundReAbType(unionTags)  // FUNCION QUE PRIMERO BUSCA EL MATCH EXCACTO Y SI NO LO ENCUENTRA, llama a otra funcion que agrega el tipo por palabras clave
-	} else if(ReAbType === null){
+	} 
+	
+	else if (ReAbType != null && tags != null){
+		// If ReAbType is not an array, this operator makes it one
+		ReAbType = !Array.isArray(ReAbType) ? [ReAbType] : ReAbType;
+		console.log("type y tags existen")
+		ReAbType.map(type => tagsArray.push(type))		
 		return foundReAbType(tagsArray)  // FUNCION QUE PRIMERO BUSCA EL MATCH EXCACTO Y SI NO LO ENCUENTRA, llama a otra funcion que agrega el tipo por palabras clave
-	} else if(tags === null){
+	} 
+	
+	else if(ReAbType === null){	
+		console.log("ReAbType null")	
+		return foundReAbType(tagsArray)  // FUNCION QUE PRIMERO BUSCA EL MATCH EXCACTO Y SI NO LO ENCUENTRA, llama a otra funcion que agrega el tipo por palabras clave
+	} 
+	
+	else if(tags === null){
+		// If ReAbType is not an array, this operator makes it one
+		ReAbType = !Array.isArray(ReAbType) ? [ReAbType] : ReAbType;
+		console.log("tags null")
         let ReAbTypeArray = typeof ReAbType != "object" ? [ReAbType] : ReAbType;
 		return foundReAbType(ReAbTypeArray)  // FUNCION QUE PRIMERO BUSCA EL MATCH EXCACTO Y SI NO LO ENCUENTRA, llama a otra funcion que agrega el tipo por palabras clave
 	} 
@@ -27,7 +43,7 @@ export const typeValidator = (ReAbType,tags) => {
 
 
 const foundReAbType = (arrayToFound) => {
-    let newArrayToFound = [...arrayToFound];
+	const newArrayToFound = [...arrayToFound];
 
 	if(typeMatch(arrayToFound,typeCode)){
 		return removeDuplicate(["Code", ...newArrayToFound])   
@@ -45,11 +61,12 @@ const typeMath = ["math","matematicas","suma","sumas","resta","restas","multipli
 const typeSpace = ["space"];
 
 const typeMatch = (arrayTags,arrayTypeMatch) => {
+
 	for(let KeyWordElement of arrayTypeMatch){
-        let ReAbTypeFounded = arrayTags.filter(element => element.toLowerCase().match(new RegExp(KeyWordElement)))
+		let ReAbTypeFounded = arrayTags.filter(element => element.toLowerCase().match(new RegExp(KeyWordElement)))
+		
         if (ReAbTypeFounded.length >= 1){
             return true
-            break
         }
 	}  
 } 
@@ -69,12 +86,14 @@ const typeMatch = (arrayTags,arrayTypeMatch) => {
  * segundo argumento "4" los que se quieren conservar a partir de la posicion donde se borra
  */
 const removeDuplicate = (arrayToReview) => {
-    for(let i=0; i<= arrayToReview.length; i++){        
-        if (arrayToReview[0].toLowerCase == arrayToReview[(i+1)].toLowerCase){   // cambiarlo a .match para que sea case sensitive
+/*    for(let i=0; i<= arrayToReview.length; i++){ 
+		console.log("i = " + i)        
+        if (arrayToReview[0].toLowerCase == arrayToReview[i].toLowerCase){   // cambiarlo a .match para que sea case sensitive
             console.log("i = " + i) 
-            return arrayToReview /*.splice((i+1),1); */
+			//arrayToReview.splice((i+1),1); 
+			return arrayToReview
             //break
         }
-    }
+	}  */
     return arrayToReview
 }

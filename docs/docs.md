@@ -3,35 +3,28 @@
 # 1
 ## Crea tus acordeónes 
 
-`ReAb.create(input, output)`
+`ReAb.create(collection,position, input)`
 El primer argumento de entrada es obligatorio (string, stringUrl, array u objecto), y el segundo de salida (stringUrl) para generar un archivo de salida .txt o .json es opcional
 
 
 Puedes crear un acordeón usando el [standard de escritura rápida] pasando como argumento el contenido en un string
-`ReAb.create("comando para crear una rama -- git branch, git checkout -b")`
+`ReAbCollection = []`
+`ReAb.create(ReAbCollection,0,"comando para crear una rama -- git branch, git checkout -b")`
 
-`ReAb.create("Crea una rama -- git branch ^regex(\w)^, git checkout -b ^regex(\w)^ |\n| <Code,git -v2.16.2.windows.1>")` 
-
-
-con la ruta del contenido de entrada en formato .reab o .txt
-`const newReAb = ReAb.create("./carpeta/acordeones-a-converitr.txt")`
-
-`ReAb.create("./carpeta/acordeones-a-converitr.reab", "../colecciónReAb.json")`
-
-`ReAb.create("./carpeta/acordeones-a-converitr.reab", "../colecciónReAb.txt")`
+`ReAb.create(ReAbCollection,"last","Crea una rama -- git branch ^(\w)^, git checkout -b ^(\w)^ |\n| <Code,git -v2.16.2.windows.1>")` 
 
 
-o de manera tradicional a partir de un objeto sencillo:
+O de manera tradicional a partir de un objeto sencillo:
 `ReAb.create({question: "dog", answer: ["perro","canino"], wrongAnswer: ["gato","gatos","mininos"], tags: "spanish"})`
 
 
 Un acordeón se puede crear unicamente con un argumento de respuesta "answer" o uno de resultado "result"
 
-`ReAb.create({answer:"Murray Rothbard"})`
+`ReAb.create(ReAbCollection,"first",{answer:"Murray Rothbard"})`
 
-`ReAb.create({result:3})`
+`ReAb.create(ReAbCollection,"3",{result:3})`
 
-`ReAb.create({result: "devuelve esto"})`
+`ReAb.create(ReAbCollection,"2",{result: "devuelve esto"})`
 
 
 A partir de ahí, esta es toda la lista de argumentos opcionales con la que puedes crear el acordeón:
@@ -59,23 +52,25 @@ A partir de ahí, esta es toda la lista de argumentos opcionales con la que pued
 
 
 Si quieres crear un acordeón de multiples procesos sin escritura rápida, manda como argumento un array como en el ejemplo siguiente:
-`ReAb.create([
+`ReAb.create(ReAbCollection,"last",
+			[
 			  {answer: ["git log", "git log --oneline"]},
               {answer: ["git add .", "git add -a"]},
-              {answer: ["git commit", "git commit -m ^regex(\w)^"]}
+              {answer: ["git commit", "git commit -m ^(\w)^"]}
             ])`
 
 
 Si quieres que tenga bifurcaciones dentro de los procesos:
-`ReAb.create([
+`ReAb.create(ReAbCollection,"last",
+			[
 			  {answer: ["git log", "git log --oneline"], 
 			   router: ["git add . :: 2,2 ","git add -a :: 2,2 "]
 			  },
               {answer: ["git add .", "git add -a"],
                branch:[
-					{answer: ["git commit", "git commit -m ^regex(\w)^"]}
-              ]},
-              {answer: ["git commit", "git commit -m ^regex(\w)^"]}
+					{answer: ["git commit", "git commit -m ^(\w)^"]}
+               ]},
+              {answer: ["git commit", "git commit -m ^(\w)^"]}
             ])`
 
 

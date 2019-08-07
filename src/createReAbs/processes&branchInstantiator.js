@@ -6,7 +6,7 @@
  * @param {arrayObject} arrayObject
  * @return {ReAbProcessArrayObject} 
  */
-export const createReAbProcesses = arrayObject => arrayObject.map(process => createReAbProcess(process));
+export const createReAbProcesses = arrayObject => arrayObject.map((process,i) => createReAbProcess(process,(i+1).toString()));
 
 
 
@@ -19,25 +19,26 @@ export const createReAbProcesses = arrayObject => arrayObject.map(process => cre
  * 
  * @param {*} objectOrString 
  */
-const createReAbProcess = (objectOrString) => {
-	let ReAbQuestions = objectOrString.pregunta ? objectOrString.pregunta : objectOrString.preguntas ? objectOrString.preguntas : objectOrString.question ? objectOrString.question : objectOrString["question?"] ? objectOrString["question?"] : objectOrString.questions ? objectOrString.questions : objectOrString.quest ? objectOrString.quest : null;
-	let ReAbCanvas = objectOrString.canvas ? objectOrString.canvas : null ;
-	let ReAbAnswers = objectOrString.respuesta ? objectOrString.respuesta : objectOrString.respuestas ? objectOrString.respuestas : objectOrString.answer ? objectOrString.answer : objectOrString.answers ? objectOrString.answers : null;
-	let ReAbWrongAnswers = objectOrString.preguntaIncorrecta ? objectOrString.preguntaIncorrecta : objectOrString.preguntasIncorrectas ? objectOrString.preguntasIncorrectas : objectOrString.wrongAnswer ? objectOrString.wrongAnswer : objectOrString.wrongAnswers ? objectOrString.wrongAnswers : null;
-	let ReAbOperations = objectOrString.operations ? objectOrString.operations : null;
-	let ReAbSpace = objectOrString.space ? objectOrString.space : null;
-	let ReAbResults = objectOrString.result ? objectOrString.result : objectOrString.results ? objectOrString.results : objectOrString.resultado ? objectOrString.resultado : objectOrString.resultados ? objectOrString.resultados : null;
+const createReAbProcess = (objectOrString,processIdName) => {
+	const ReAbQuestions = objectOrString.pregunta ? objectOrString.pregunta : objectOrString.preguntas ? objectOrString.preguntas : objectOrString.question ? objectOrString.question : objectOrString["question?"] ? objectOrString["question?"] : objectOrString.questions ? objectOrString.questions : objectOrString.quest ? objectOrString.quest : null;
+	const ReAbCanvas = objectOrString.canvas ? objectOrString.canvas : null ;
+	const ReAbAnswers = objectOrString.respuesta ? objectOrString.respuesta : objectOrString.respuestas ? objectOrString.respuestas : objectOrString.answer ? objectOrString.answer : objectOrString.answers ? objectOrString.answers : null;
+	const ReAbWrongAnswers = objectOrString.preguntaIncorrecta ? objectOrString.preguntaIncorrecta : objectOrString.preguntasIncorrectas ? objectOrString.preguntasIncorrectas : objectOrString.wrongAnswer ? objectOrString.wrongAnswer : objectOrString.wrongAnswers ? objectOrString.wrongAnswers : null;
+	const ReAbOperations = objectOrString.operations ? objectOrString.operations : null;
+	const ReAbSpace = objectOrString.space ? objectOrString.space : null;
+	const ReAbResults = objectOrString.result ? objectOrString.result : objectOrString.results ? objectOrString.results : objectOrString.resultado ? objectOrString.resultado : objectOrString.resultados ? objectOrString.resultados : null;
 
-	let ReAbAnotations = objectOrString.anotations ? objectOrString.anotations : objectOrString.anotation ? objectOrString.anotation : objectOrString.anotacion ? objectOrString.anotacion :  objectOrString.anotaciones ? objectOrString.anotaciones : null;
-	let ReAbMnemonics = objectOrString.mnemonics ? objectOrString.mnemonics : null;
-	let ReAbQuestionAnswer = objectOrString.questionAnswer ? objectOrString.questionAnswer : objectOrString.questAnswer ? objectOrString.questAnswer : objectOrString.questAns ? objectOrString.questAns : null;    
-	let ReAbQuestOutResources = objectOrString.questOutResources ? objectOrString.questOutResources : null;
-	let ReAbReaction = objectOrString.reaction ? objectOrString.reaction : null;
-	let ReAbProcessReactionMap = objectOrString.processReactionMap ? objectOrString.processReactionMap : null;
+	const ReAbAnotations = objectOrString.anotations ? objectOrString.anotations : objectOrString.anotation ? objectOrString.anotation : objectOrString.anotacion ? objectOrString.anotacion :  objectOrString.anotaciones ? objectOrString.anotaciones : null;
+	const ReAbMnemonics = objectOrString.mnemonics ? objectOrString.mnemonics : null;
+	const ReAbQuestionAnswer = objectOrString.questionAnswer ? objectOrString.questionAnswer : objectOrString.questAnswer ? objectOrString.questAnswer : objectOrString.questAns ? objectOrString.questAns : null;    
+	const ReAbQuestOutResources = objectOrString.questOutResources ? objectOrString.questOutResources : null;
+	const ReAbReaction = objectOrString.reaction ? objectOrString.reaction : null;
+	const ReAbProcessReactionMap = objectOrString.processReactionMap ? objectOrString.processReactionMap : null;
 
-	let ReAbBranches = objectOrString.branch ? objectOrString.branch : objectOrString.branches ? objectOrString.branches : objectOrString.rama ? objectOrString.rama : objectOrString.ramas ? objectOrString.ramas : objectOrString.ramificacion ? objectOrString.ramificacion : objectOrString.ramificaciones ? objectOrString.ramificaciones : null;
+	const ReAbBranches = objectOrString.branch ? objectOrString.branch : objectOrString.branches ? objectOrString.branches : objectOrString.rama ? objectOrString.rama : objectOrString.ramas ? objectOrString.ramas : objectOrString.fork ? objectOrString.fork : objectOrString.forks ? objectOrString.forks : null;
+	const ReabProcessId = processIdName;
 
-	return ReAbProcessCreator(ReAbQuestions,ReAbCanvas,ReAbAnswers,ReAbWrongAnswers,ReAbResults,ReAbOperations,ReAbSpace,ReAbAnotations,ReAbMnemonics,ReAbQuestionAnswer,ReAbQuestOutResources,ReAbReaction,ReAbProcessReactionMap,ReAbBranches);
+	return ReAbProcessCreator(ReAbQuestions,ReAbCanvas,ReAbAnswers,ReAbWrongAnswers,ReAbResults,ReAbOperations,ReAbSpace,ReAbAnotations,ReAbMnemonics,ReAbQuestionAnswer,ReAbQuestOutResources,ReAbReaction,ReAbProcessReactionMap,ReAbBranches,ReabProcessId);
 }
 
 
@@ -63,20 +64,18 @@ const createReAbProcess = (objectOrString) => {
  * @param {stringArray} ReAbProcessReactionMap 
  * @param {objectArray} ReAbBranches 
  */
-const ReAbProcessCreator = (ReAbQuestions,ReAbCanvas,ReAbAnswers,ReAbWrongAnswers,ReAbResults,ReAbOperations,ReAbSpace,ReAbAnotations,ReAbMnemonics,ReAbQuestionAnswer,ReAbQuestOutResources,ReAbReaction,ReAbProcessReactionMap,ReAbBranches) =>{
+const ReAbProcessCreator = (ReAbQuestions,ReAbCanvas,ReAbAnswers,ReAbWrongAnswers,ReAbResults,ReAbOperations,ReAbSpace,ReAbAnotations,ReAbMnemonics,ReAbQuestionAnswer,ReAbQuestOutResources,ReAbReaction,ReAbProcessReactionMap,ReAbBranches,ReAbProcessId) =>{
 	return { 
-		"processId" : [              
-		  1
-		],
-		"question?" : ReAbQuestions,
-		"canvas?" : ReAbCanvas,
+		"processId" : ReAbProcessId,
+		"question" : ReAbQuestions,
+		"canvas" : ReAbCanvas,
 		"answer" : ReAbAnswers,
-		"wrong?" : ReAbWrongAnswers,
+		"wrong" : ReAbWrongAnswers,
 		"results": ReAbResults,
 		"anScore" : [        
 		  0,0
 		],
-		"interconections?" : {
+		"interconections" : {
 		  "anotations": ReAbAnotations,
 		  "mnemonics": ReAbMnemonics,
 		  "questionAnswer": ReAbQuestionAnswer,      /// ELEMENTOS QUE AL AZAR PUEDEN FUNGIR COMO PREGUNTA O COMO RESPUESTA
@@ -84,8 +83,8 @@ const ReAbProcessCreator = (ReAbQuestions,ReAbCanvas,ReAbAnswers,ReAbWrongAnswer
 		  "reaction": ReAbReaction,
 		  "processReactionMap": ReAbProcessReactionMap   //// Programas rutas entre los elementos answer activados y bifurcaciones específicas "branch" en los siguientes procesos  // la ruta destino es la indicada despues de  " :: "
 		},
-		"operations?" : ReAbOperations,    ///  *   AQUI SE GUARDA LA DIDACTICA INTERNA espacial/relacional PARA ENSEÑAR AL ReAb A EJECUTAR LA OPERACIÓN MATEMÁTICA
-		"space?" : ReAbSpace,      ///  *  AQUÍ SE GUARDAN COORDENADAS Y AREAS DE LA PANTALLA CON FORMAS GEOMETRICAS QUE AL PULSAR O INTERACTUAR DE MANERA CORRECTA, RESUELVE EL ReAb O PASA AL SIGUIENTE PROCESO
-		"branch?" : ReAbBranches ? createReAbProcesses(ReAbBranches) : null   /// La ramificación de objetos subprocesos en caso de que los haya, son guardados aquí
+		"operations" : ReAbOperations,    ///  *   AQUI SE GUARDA LA DIDACTICA INTERNA espacial/relacional PARA ENSEÑAR AL ReAb A EJECUTAR LA OPERACIÓN MATEMÁTICA
+		"space" : ReAbSpace,      ///  *  AQUÍ SE GUARDAN COORDENADAS Y AREAS DE LA PANTALLA CON FORMAS GEOMETRICAS QUE AL PULSAR O INTERACTUAR DE MANERA CORRECTA, RESUELVE EL ReAb O PASA AL SIGUIENTE PROCESO
+		"branch" : ReAbBranches ? createReAbProcesses(ReAbBranches) : null   /// La ramificación de objetos subprocesos en caso de que los haya, son guardados aquí
 	  } 
 } 
