@@ -1,4 +1,7 @@
-# Seguimiento automático de lo que aprendes
+# DEPRECATED 
+  
+  
+## Seguimiento automático de lo que aprendes
 
 ## Crea tus acordeones digitales de manera rápida y sencilla para dar seguimiento permanente a lo que aprendes, desde conceptos sencillos, hasta tareas complejas.
 
